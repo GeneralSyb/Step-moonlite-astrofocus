@@ -7,5 +7,5 @@ It uses a modified version of hansastro's moonlite library: https://github.com/H
 
 1. Drop the ```Moonlite```(inside libraries) folder into your ```.\Documents\Arduino\libraries\``` folder.
 2. Drop the ```focuser``` folder into your ```.\Documents\Arduino\``` folder and open it using the Arduino IDE.
-3. Setup the stp, dir, MS1, MS2 in accordance with your own pinout.
+3. Setup the stp, dir, MS1, MS2 in accordance with your own pinout. The led pin is used as a debug led, you can set it to an unused pin on your microcontroller.
 4. Upload the sketch by following the upload procedure required for your board.
