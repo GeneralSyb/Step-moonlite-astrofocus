@@ -18,6 +18,8 @@ bool allowed = false;
 int speed = 1000;
 int direction = 1;
 
+int stepMode = 0;
+
 void processCommand()
 {
   MoonliteCommand_t command;
@@ -69,7 +71,8 @@ void processCommand()
       break;
     case ML_GH:
       // Return the current stepping mode (half or full step)
-      SerialProtocol.setAnswer(2, (long)0xFF);
+      //SerialProtocol.setAnswer(2, (long)0xFF);
+      SerialProtocol.setAnswer(2, (long)(stepMode ? 0xFF : 0x00));
       break;
     case ML_GI:
       // get if the motor is moving or not
@@ -77,8 +80,9 @@ void processCommand()
         SerialProtocol.setAnswer(2, (long)(false ? 0x01 : 0x00));
       }
       else {
-        SerialProtocol.setAnswer(2, (long)(false ? 0x01 : 0x00));
+        SerialProtocol.setAnswer(2, (long)(true ? 0x01 : 0x00));
       }
+      //SerialProtocol.setAnswer(2, (long)(allowed ? 0x01 : 0x00));
       break;
     case ML_GN:
       // Get the target position
@@ -126,11 +130,13 @@ void processCommand()
       break;
     case ML_SF:
       // Set the stepping mode to full step
+      stepMode = 0;      
       digitalWrite(MS1, HIGH);
       digitalWrite(MS2, HIGH);
       digitalWrite(MS3, LOW);
       break;
     case ML_SH:
+      stepMode = 1;
       // Set the stepping mode to half step
       digitalWrite(MS1, HIGH);
       digitalWrite(MS2, HIGH);
@@ -206,7 +212,7 @@ void loop(){
     //digitalWrite(SLP, HIGH);
   }
 
-  if (pos != targetPos && allowed  && micros() - lastTick>(speed/2)){ // && allowed && micros() - lastTick>(speed/2)
+  if (pos != targetPos && allowed && micros() - lastTick>(speed/2)) {
     current = !current;
     digitalWrite(stp, current);
     lastTick = micros();
