@@ -17,4 +17,4 @@ It uses a modified version of hansastro's moonlite library: https://github.com/H
 
 ## Known Issues
 
-- NINA will give an error when you try to move larger steps.
+- ~~NINA will give an error when you try to move larger steps.~~ (fixed) the microcontroller was always reporting that the motor was stopped, which the driver didn't seem to like.
