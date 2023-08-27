@@ -17,11 +17,14 @@ It uses a modified version of hansastro's moonlite library: https://github.com/H
 
 ## Troubleshooting
 
-> The motor isn't turning
+> The motor isn't turning.
+
 Check your wiring, read through the documentation of your stepper motor driver to see if there are any pins that need to be high, low or can be left floating (personally don't reccommend letting it float because something as little as your finger can make it flip to either side). It is also important to check if you are supplying a high enough voltage and don't have the current setting on the driver turned all the way down.
-> The motor is just purring and not/barely moving
+> The motor is just purring and not/barely moving.
+
 The current setting and/or voltage might be too low or too high. You can also try switching the wires on one of the two motor phases around, this can help in case the motor is trying to step against itself. So like one step clockwise and then one step counterclockwise. What might also help is adding a large electrolytic capacitor in parallel with the driver's motor voltage input. Long cables and/or badly designed power supplies can cause problems because these motors can have very high current spikes. There is a chance it won't propperly step if there isn't a capacitor. Get a big one, between 100 and 1000 uF with a voltage rated for what you are using (take a safety margin, at least 3V, but more to be safe).
-> The motor/driver is getting quite hot
+> The motor/driver is getting quite hot.
+
 Try lowering the current setting. A focuser really doesn't need a whole lot of torque. What might also help is setting up a sleep function. Most drivers have some sort of sleep or enable pin. Do some research and find out if it is the case. In step 3 of the setup it is explained how it can be configured in software.
 
 ## Known Issues
