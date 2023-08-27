@@ -1,10 +1,14 @@
 #include <Moonlite.h>
 
-#define stp 21
-#define dir 5
-#define MS1 18
-#define MS2 33
-#define led 15
+int stp = D1;
+int dir = D0;
+int MS1 = D5;
+int MS2 = D4;
+int MS3 = D3;
+int SLP = D2;
+int EN  = D9;
+int RST = D8;
+int led = LED_BUILTIN;
 
 Moonlite SerialProtocol;
 
@@ -122,11 +126,15 @@ void processCommand()
       break;
     case ML_SF:
       // Set the stepping mode to full step
-      
+      digitalWrite(MS1, HIGH);
+      digitalWrite(MS2, HIGH);
+      digitalWrite(MS3, LOW);
       break;
     case ML_SH:
       // Set the stepping mode to half step
-      
+      digitalWrite(MS1, HIGH);
+      digitalWrite(MS2, HIGH);
+      digitalWrite(MS3, HIGH);
       break;
     case ML_SN:
       // Set the target position
@@ -170,11 +178,16 @@ void setup(){
   pinMode(dir, OUTPUT);
   pinMode(MS1, OUTPUT);
   pinMode(MS2, OUTPUT);
+  pinMode(MS3, OUTPUT);
+  pinMode(SLP, OUTPUT);
+  pinMode(RST, OUTPUT);
+  pinMode(EN, OUTPUT);
+
+  digitalWrite(EN, LOW);
+  digitalWrite(RST, HIGH);
+  digitalWrite(SLP, HIGH);
 
   pinMode(led, OUTPUT);
-
-  digitalWrite(MS1,HIGH);
-  digitalWrite(MS2,HIGH);
 }
 
 byte current = LOW;
@@ -186,11 +199,19 @@ void loop(){
     processCommand();
   }
 
+  if (allowed) {
+    //digitalWrite(SLP, LOW);
+  }
+  else {
+    //digitalWrite(SLP, HIGH);
+  }
+
   if (pos != targetPos && allowed  && micros() - lastTick>(speed/2)){ // && allowed && micros() - lastTick>(speed/2)
     current = !current;
     digitalWrite(stp, current);
     lastTick = micros();
-
+    digitalWrite(led, current);
+        
     if (direction == 1){
       pos++;
     }
