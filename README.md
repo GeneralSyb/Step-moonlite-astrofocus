@@ -11,6 +11,17 @@ It uses a modified version of hansastro's moonlite library: https://github.com/H
 (optional) you can set a sleep mode near the bottom of the document, this can be helpfull to reduce heat buildup or to save power. There is an if else statement which checks if a variable called 'allowed' is true. Basically as long as the motor is supposed to run, it will not be sleeping.
 4. Upload the sketch by following the upload procedure required for your board.
 
+## How to use
+
+- Windows (ASCOM)
+
+  Install the latest ASCOM driver from the ASCOM website, then install the Moonlite ASCOM driver from focuser.com (included in ZIP file that can be downloaded with the ```MoonLite DRO Setup.zip``` button). Then you can use your program of choice to use the focuser. The driver should automatically scan all the available com ports for a moonlite focuser.
+- Linux (Ekos/astroberry system)
+
+  Select the Moonlite focuser in the configuration settings.
+
+Of course connect a USB cable to your microcontroller. The motor might run in the wrong direction. I'd recommend switching the motor's phases around to fix this.
+
 ## To be implemented
 
 - Temperature compensation.
