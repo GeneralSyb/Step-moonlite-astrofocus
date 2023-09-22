@@ -9,6 +9,7 @@ Symbols, footprints and 3D models can be found at:
 - A4988: see .\libraries (no STP model)
 - Terminal blocks: https://www.te.com/usa-en/product-282834-4.html & https://www.te.com/usa-en/product-282834-3.html
 
-![alt text]([https://github.com/GeneralSyb/Step-moonlite-astrofocus/blob/main/focuser-pcb/EZFocus_pcb.png])
-![alt text]([https://github.com/GeneralSyb/Step-moonlite-astrofocus/blob/main/focuser-pcb/EZFocus_schematic.png])
-![alt text]([https://github.com/GeneralSyb/Step-moonlite-astrofocus/blob/main/focuser-pcb/EZFocus_3d.png])
+![alt text]([https://github.com/GeneralSyb/Step-moonlite-astrofocus/blob/main/focuser-pcb/EZFocus_pcb.png?raw=true])
+![alt text]([https://github.com/GeneralSyb/Step-moonlite-astrofocus/blob/main/focuser-pcb/EZFocus_schematic.png?raw=true])
+![alt text]([https://github.com/GeneralSyb/Step-moonlite-astrofocus/blob/main/focuser-pcb/EZFocus_3d.png?raw=true])
+
