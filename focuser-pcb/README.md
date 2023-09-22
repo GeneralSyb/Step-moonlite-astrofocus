@@ -8,3 +8,7 @@ Symbols, footprints and 3D models can be found at:
 - Barrel plug STP: https://grabcad.com/library/dc-power-jack-5-5mm-x-2-1mm-2-54mm-pitch-1 (pin spacing doesn't exactly match, but footprint is correct)
 - A4988: see .\libraries (no STP model)
 - Terminal blocks: https://www.te.com/usa-en/product-282834-4.html & https://www.te.com/usa-en/product-282834-3.html
+
+![alt text]([https://github.com/GeneralSyb/Step-moonlite-astrofocus/blob/main/focuser-pcb/EZFocus_pcb.png])
+![alt text]([https://github.com/GeneralSyb/Step-moonlite-astrofocus/blob/main/focuser-pcb/EZFocus_schematic.png])
+![alt text]([https://github.com/GeneralSyb/Step-moonlite-astrofocus/blob/main/focuser-pcb/EZFocus_3d.png])
